@@ -3,148 +3,164 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>CHoMU Engine — Android game editor & Chomu games</title>
-<meta name="description" content="CHoMU Engine: an Android game editor based on Godot Engine 4.7.2 with GDScript. Download the APK and play Chomu City.">
-<meta name="theme-color" content="#07080d">
-<meta property="og:title" content="CHoMU Engine">
-<meta property="og:description" content="Make games on your phone. Android game editor based on Godot 4.7.2 + Chomu games.">
+<title>CHoMU Engine — Make games on your phone</title>
+<meta name="description" content="CHoMU Engine is a full 2D & 3D game editor that runs on Android. Build scenes, write scripts and play your game right on your phone. Download the APK and play Chomu City.">
+<meta name="theme-color" content="#06070b">
+<meta property="og:title" content="CHoMU Engine — Make games on your phone">
+<meta property="og:description" content="A full 2D & 3D game editor for Android. No PC needed.">
 <meta property="og:image" content="/assets/og.jpg">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" href="/assets/fonts/Inter-0.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/SpaceGrotesk-2.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css">
+<script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
-<canvas id="particles" aria-hidden="true"></canvas>
-<div class="grid-bg" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-dl" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m0 0l-6-6m6 6l6-6"/></symbol>
+</svg>
 
 <header class="nav" id="nav">
-  <a href="#top" class="brand"><img src="/assets/icon_512.png" alt="" width="34" height="34"><span>CHoMU</span></a>
-  <nav class="links">
+  <a href="#top" class="brand" aria-label="CHoMU Engine home"><img src="/assets/icon_512.png" alt="" width="32" height="32"><span>CHoMU</span></a>
+  <nav class="links" aria-label="Sections">
     <a href="#engine">Engine</a>
     <a href="#games">Games</a>
     <a href="#download">Download</a>
     <a href="#credits">Credits</a>
   </nav>
-  <a href="#download" class="btn btn-sm">Get APK</a>
+  <a href="#download" class="btn btn-sm">Get the APK</a>
 </header>
 
 <main id="top">
   <!-- HERO -->
-  <section class="hero">
-    <div class="hero-glow" aria-hidden="true"></div>
-    <!-- Optional hero video slot: drop /assets/hero.mp4 and it plays automatically behind the logo -->
-    <video class="hero-video" id="heroVideo" muted loop playsinline preload="none" data-src="/assets/hero.mp4" aria-hidden="true"></video>
-    <div class="hero-inner">
-      <div class="logo-wrap">
-        <div class="ring r1"></div><div class="ring r2"></div>
-        <img src="/assets/logo_white.png" class="hero-logo" alt="CHoMU Engine logo" width="220" height="220">
-      </div>
-      <h1 class="title glitch" data-text="CHoMU ENGINE">CHoMU ENGINE</h1>
-      <p class="tagline"><span class="typed" id="typed"></span><span class="caret">|</span></p>
-      <div class="cta">
-        <a class="btn btn-primary" id="heroDl" href="https://huggingface.co/tertrxcuvuvjvj/chomu-releases/resolve/main/CHoMU_Engine_v1.0.apk?download=true">
-          <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5z"/></svg>
-          Download Engine APK <small>v1.0 · 158.5 MB</small>
-        </a>
-        <a class="btn btn-ghost" href="#games">Play Chomu City</a>
-      </div>
-      <p class="hero-note">Android · arm64 · Based on Godot Engine 4.7.2 (MIT)</p>
+  <section class="hero" id="hero">
+    <div class="hero-bg" id="heroBg" aria-hidden="true">
+      <video class="hero-video" id="heroVideo" muted loop playsinline preload="none" data-src="/assets/hero.mp4"></video>
+      <div class="orb o1"></div><div class="orb o2"></div>
+      <div class="hero-fade"></div>
     </div>
-    <a href="#engine" class="scroll-hint" aria-label="Scroll down"><span></span></a>
+    <div class="hero-inner">
+      <div class="logo-wrap intro i1">
+        <div class="logo-halo" aria-hidden="true"></div>
+        <img src="/assets/logo_white.png" class="hero-logo" alt="CHoMU Engine logo" width="180" height="180">
+      </div>
+      <span class="chip intro i2"><i class="dot"></i>Version 1.0 · Now on Android</span>
+      <h1 class="title intro i3">CHoMU <span>Engine</span></h1>
+      <p class="tagline intro i4">Make real 2D &amp; 3D games on your phone.<br class="br-m"> Build, script and play — no PC needed.</p>
+      <div class="cta intro i5">
+        <a class="btn btn-primary btn-lg" href="https://huggingface.co/tertrxcuvuvjvj/chomu-releases/resolve/main/CHoMU_Engine_v1.0.apk?download=true">
+          <svg width="20" height="20"><use href="#i-dl"/></svg>
+          <span>Download CHoMU Engine<small>v1.0 · 158.5 MB · APK</small></span>
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#games"><svg width="18" height="18"><use href="#i-play"/></svg><span>Play Chomu City</span></a>
+      </div>
+      <ul class="hero-meta intro i6">
+        <li>Android arm64</li><li>2D &amp; 3D</li><li>GDScript</li>
+      </ul>
+    </div>
+    <a href="#engine" class="scroll-hint" aria-label="Scroll to the engine"><svg width="18" height="18"><use href="#i-arrow"/></svg></a>
   </section>
 
   <!-- ENGINE -->
   <section id="engine" class="section">
     <div class="section-head reveal">
-      <span class="kicker">// the engine</span>
-      <h2>Make games <em>on your phone.</em></h2>
-      <p>CHoMU Engine is a branded Android build of the full Godot 4.7.2 editor. Open, edit and run 2D &amp; 3D projects right on an Android device — no PC needed.</p>
+      <span class="kicker">The engine</span>
+      <h2>A complete game studio, <em>in your pocket.</em></h2>
+      <p>CHoMU Engine runs natively on Android. Create a project, lay out your scenes, write your gameplay and hit play — all on the same device.</p>
     </div>
-    <div class="features">
-      <article class="card tilt reveal">
-        <div class="ico">⚙️</div>
-        <h3>Full editor on Android</h3>
-        <p>Scene tree, inspector, script editor, project manager and run button — the complete Godot 4.7.2 editor compiled for arm64 Android.</p>
+    <div class="features stagger">
+      <article class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 9h18M8 9v10"/></svg></div>
+        <h3>Full editor on your phone</h3>
+        <p>Scene tree, inspector, script editor, project manager and one-tap run. The whole workflow, no laptop required.</p>
       </article>
-      <article class="card tilt reveal">
-        <div class="ico">📜</div>
-        <h3>GDScript support</h3>
-        <p>Write gameplay in GDScript with the built-in code editor. Projects stay compatible with standard Godot 4.7.</p>
+      <article class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9zM12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg></div>
+        <h3>2D &amp; 3D renderer</h3>
+        <p>Forward+, Mobile and Compatibility renderers with real-time lights, shadows, fog, glow and HDRI skies.</p>
       </article>
-      <article class="card tilt reveal">
-        <div class="ico">🧊</div>
-        <h3>2D &amp; 3D renderers</h3>
-        <p>Forward+, Mobile and Compatibility renderers included, plus all standard engine modules.</p>
+      <article class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M13.5 4l-3 16"/></svg></div>
+        <h3>Scripting built in</h3>
+        <p>Write gameplay in GDScript with a built-in code editor, syntax highlighting and autocompletion.</p>
       </article>
-      <article class="card tilt reveal">
-        <div class="ico">📦</div>
-        <h3>Open Chomu projects</h3>
-        <p>Import the Chomu City project (source on GitHub) and tweak the city, cars and shaders yourself.</p>
+      <article class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.2 0 1.8-.9 1.4-1.9-.4-1 .2-2.1 1.3-2.1H17a4 4 0 0 0 4-4c0-5.5-4-10-9-10z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10.5" cy="7" r="1"/><circle cx="15" cy="7.5" r="1"/></svg></div>
+        <h3>Shaders &amp; post-processing</h3>
+        <p>Write custom shaders and materials, then tune tonemapping, glow and fog until your world looks right.</p>
+      </article>
+      <article class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M5 17h14M6.5 17l1.5-5h8l1.5 5M8 12l1.5-4h5L16 12"/><circle cx="8" cy="19" r="1.6"/><circle cx="16" cy="19" r="1.6"/></svg></div>
+        <h3>Physics &amp; animation</h3>
+        <p>2D and 3D physics, drivable vehicles, character controllers and an animation system for bringing scenes to life.</p>
+      </article>
+      <article class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg></div>
+        <h3>Made for Android</h3>
+        <p>A native arm64 app for phones and tablets. Open project folders from your device storage and keep building anywhere.</p>
       </article>
     </div>
-    <div class="spec reveal">
-      <div><b>Version</b><span>1.0</span></div>
-      <div><b>Base</b><span>Godot 4.7.2-stable</span></div>
-      <div><b>Package</b><span>com.tejas.chomuengine</span></div>
-      <div><b>Arch</b><span>arm64-v8a</span></div>
-      <div><b>Size</b><span>158.5 MB</span></div>
-    </div>
+    <dl class="spec reveal">
+      <div><dt>Version</dt><dd>1.0</dd></div>
+      <div><dt>Platform</dt><dd>Android · arm64</dd></div>
+      <div><dt>Renderers</dt><dd>Forward+ · Mobile · Compatibility</dd></div>
+      <div><dt>Scripting</dt><dd>GDScript</dd></div>
+      <div><dt>Size</dt><dd>158.5 MB</dd></div>
+    </dl>
   </section>
 
   <!-- GAMES -->
   <section id="games" class="section">
     <div class="section-head reveal">
-      <span class="kicker">// the games</span>
-      <h2>Chomu <em>games</em></h2>
-      <p>Built with CHoMU Engine. More coming soon.</p>
+      <span class="kicker">The games</span>
+      <h2>Made with <em>CHoMU.</em></h2>
+      <p>Games built on CHoMU Engine. Download, install and play.</p>
     </div>
 
     <article class="game-feature reveal">
-      <div class="media tilt-soft">
-        <!-- Gameplay video slot: put /assets/chomucity_gameplay.mp4 (web mp4, H.264) and it replaces the screenshot automatically -->
-        <video id="cityVideo" class="media-el" muted loop playsinline controls preload="metadata"
-               poster="/assets/chomucity_shot.jpg" data-src="/assets/chomucity_gameplay.mp4" hidden></video>
+      <div class="media">
+        <video id="cityVideo" class="media-el" muted loop playsinline preload="none"
+               poster="/assets/chomucity_poster.jpg" data-src="/assets/chomucity_gameplay.mp4" hidden aria-label="Chomu City gameplay video"></video>
         <picture id="cityShot">
           <source srcset="/assets/chomucity_shot.webp" type="image/webp">
-          <img class="media-el" src="/assets/chomucity_shot.jpg" alt="Chomu City gameplay screenshot: character on a city street with minimap" loading="lazy" width="1280" height="720">
+          <img class="media-el" src="/assets/chomucity_shot.jpg" alt="Chomu City gameplay: character on a city street with minimap" loading="lazy" width="1280" height="720">
         </picture>
-        <span class="badge live">PLAYABLE</span>
+        <span class="badge live"><i class="dot"></i>Playable now</span>
+        <button class="sound" id="cityMute" type="button" aria-label="Turn sound on" hidden>Sound off</button>
       </div>
       <div class="info">
         <h3>Chomu City <span class="ver">v0.1</span></h3>
-        <p>An open-world city demo for Android. Walk the streets, jump in a car, drift through traffic and watch the day turn to night.</p>
+        <p>An open-world city on your phone. Walk the streets, jump in a car, drift through traffic and watch day turn into night.</p>
         <ul class="ticks">
-          <li>Procedural 400×400 m city with traffic &amp; pedestrians</li>
-          <li>Enter / exit cars, horn, drift, car lights</li>
-          <li>Day–night cycle, HDRI sky, fog &amp; glow</li>
+          <li>400 × 400 m city with traffic and pedestrians</li>
+          <li>Enter and exit cars, horn, drift, headlights</li>
+          <li>Day–night cycle, HDRI sky, fog and glow</li>
           <li>Touch controls, minimap, Low → Ultra graphics</li>
         </ul>
         <div class="row">
           <a class="btn btn-primary" href="https://huggingface.co/tertrxcuvuvjvj/chomu-releases/resolve/main/ChomuCity_v0.1.apk?download=true">
-            <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5z"/></svg>
-            Download APK <small>v0.1 · 38.7 MB</small>
+            <svg width="20" height="20"><use href="#i-dl"/></svg>
+            <span>Download Chomu City<small>v0.1 · 38.7 MB · APK</small></span>
           </a>
-          <a class="btn btn-ghost" href="https://github.com/thanoxxinfnity/ChoMU/tree/chomu-release/chomu-city" target="_blank" rel="noopener">Source</a>
+          <a class="btn btn-ghost" href="https://github.com/thanoxxinfnity/CHOMU-engine" target="_blank" rel="noopener">View source on GitHub</a>
         </div>
       </div>
     </article>
 
-    <div class="soon-grid">
-      <article class="card soon tilt reveal haveli">
-        <span class="badge">COMING SOON</span>
-        <div class="ico big">🏚️</div>
+    <div class="soon-grid stagger">
+      <article class="card soon haveli reveal">
+        <span class="badge">Coming soon</span>
         <h3>Chomu Haveli</h3>
-        <p>A horror game set inside an old haveli. Diyas flicker, doors creak… don't look behind you.</p>
+        <p>A first-person horror game inside an abandoned haveli. Diyas flicker, doors creak… don't look behind you.</p>
       </article>
-      <article class="card soon tilt reveal shader">
-        <span class="badge">COMING SOON</span>
-        <div class="ico big">✨</div>
+      <article class="card soon shader reveal">
+        <span class="badge">Coming soon</span>
         <h3>CHoMU Shader Pack</h3>
-        <p>A pack of ready-made shaders and materials for CHoMU Engine / Godot projects.</p>
+        <p>One-tap looks — realistic, sunset, night, horror, anime and cinematic — plus ready-made materials for your projects.</p>
       </article>
     </div>
   </section>
@@ -152,56 +168,56 @@
   <!-- DOWNLOAD -->
   <section id="download" class="section">
     <div class="section-head reveal">
-      <span class="kicker">// download</span>
+      <span class="kicker">Download</span>
       <h2>One tap. <em>Install.</em></h2>
-      <p>Direct APK downloads. On Android, allow “Install unknown apps” for your browser when asked.</p>
+      <p>Direct APK downloads. When Android asks, allow “Install unknown apps” for your browser.</p>
     </div>
-    <div class="dl-grid">
-      <a class="dl-card tilt reveal" href="https://huggingface.co/tertrxcuvuvjvj/chomu-releases/resolve/main/CHoMU_Engine_v1.0.apk?download=true">
-        <img src="/assets/icon_512.png" alt="" width="72" height="72" loading="lazy">
+    <div class="dl-grid stagger">
+      <a class="dl-card reveal" href="https://huggingface.co/tertrxcuvuvjvj/chomu-releases/resolve/main/CHoMU_Engine_v1.0.apk?download=true">
+        <img src="/assets/icon_512.png" alt="" width="64" height="64" loading="lazy">
         <div><h3>CHoMU Engine</h3><p>v1.0 · 158.5 MB · Android arm64</p></div>
-        <span class="dl-arrow">↓</span>
+        <span class="dl-arrow"><svg width="20" height="20"><use href="#i-dl"/></svg></span>
       </a>
-      <a class="dl-card tilt reveal" href="https://huggingface.co/tertrxcuvuvjvj/chomu-releases/resolve/main/ChomuCity_v0.1.apk?download=true">
-        <img src="/assets/chomucity_shot.jpg" alt="" width="72" height="72" loading="lazy" class="cover">
+      <a class="dl-card reveal" href="https://huggingface.co/tertrxcuvuvjvj/chomu-releases/resolve/main/ChomuCity_v0.1.apk?download=true">
+        <img src="/assets/chomucity_shot.jpg" alt="" width="64" height="64" loading="lazy" class="cover">
         <div><h3>Chomu City</h3><p>v0.1 · 38.7 MB · Android</p></div>
-        <span class="dl-arrow">↓</span>
+        <span class="dl-arrow"><svg width="20" height="20"><use href="#i-dl"/></svg></span>
       </a>
     </div>
-    <p class="small reveal">Files hosted on <a href="https://huggingface.co/tertrxcuvuvjvj/chomu-releases" target="_blank" rel="noopener">Hugging Face</a> · Source on <a href="https://github.com/thanoxxinfnity/ChoMU/tree/chomu-release" target="_blank" rel="noopener">GitHub</a></p>
+    <p class="small reveal">Files hosted on <a href="https://huggingface.co/tertrxcuvuvjvj/chomu-releases" target="_blank" rel="noopener">Hugging Face</a> · Source code coming soon</p>
   </section>
 
   <!-- CREDITS -->
   <section id="credits" class="section">
     <div class="section-head reveal">
-      <span class="kicker">// credits &amp; licenses</span>
-      <h2>Standing on <em>giants.</em></h2>
+      <span class="kicker">Credits &amp; licenses</span>
+      <h2>Thank <em>you.</em></h2>
     </div>
-    <div class="credits reveal">
-      <div class="credit">
-        <h4>Godot Engine</h4>
-        <p>CHoMU Engine is based on <a href="https://godotengine.org" target="_blank" rel="noopener">Godot Engine</a> 4.7.2, © Juan Linietsky, Ariel Manzur and Godot Engine contributors, released under the <a href="https://godotengine.org/license" target="_blank" rel="noopener">MIT License</a>. CHoMU Engine is not affiliated with or endorsed by the Godot Foundation.</p>
+    <div class="credits stagger">
+      <div class="credit reveal">
+        <h4>Engine core</h4>
+        <p>Built on the open-source <a href="https://godotengine.org" target="_blank" rel="noopener">Godot Engine</a> (<a href="https://godotengine.org/license" target="_blank" rel="noopener">MIT License</a>), © Juan Linietsky, Ariel Manzur and contributors. Not affiliated with the Godot Foundation.</p>
       </div>
-      <div class="credit">
+      <div class="credit reveal">
         <h4>Kenney (CC0)</h4>
-        <p>City Kit (Commercial, Roads, Suburban), Car Kit, Mini Characters, Impact Sounds — <a href="https://kenney.nl" target="_blank" rel="noopener">kenney.nl</a>. Public domain, credited with thanks.</p>
+        <p>City Kit (Commercial, Roads, Suburban), Car Kit, Mini Characters, Impact Sounds — <a href="https://kenney.nl" target="_blank" rel="noopener">kenney.nl</a>.</p>
       </div>
-      <div class="credit">
+      <div class="credit reveal">
         <h4>Poly Haven (CC0)</h4>
         <p>Asphalt 02, Concrete Floor 02, Grass Path 2 textures and the Kloofendal 48d Partly Cloudy HDRI (Greg Zaal) — <a href="https://polyhaven.com/license" target="_blank" rel="noopener">polyhaven.com</a>.</p>
       </div>
-      <div class="credit">
-        <h4>Audio (CC0)</h4>
-        <p>Car Sound Effects Pack by GGBotNet and High traffic road sounds by IgnasD — <a href="https://opengameart.org" target="_blank" rel="noopener">OpenGameArt</a>.</p>
+      <div class="credit reveal">
+        <h4>OpenGameArt (CC0)</h4>
+        <p>Car Sound Effects Pack by GGBotNet and High traffic road sounds by IgnasD — <a href="https://opengameart.org" target="_blank" rel="noopener">opengameart.org</a>.</p>
       </div>
     </div>
   </section>
 </main>
 
 <footer class="footer">
-  <div class="foot-brand"><img src="/assets/icon_512.png" alt="" width="28" height="28"> CHoMU Engine · made by Tejas</div>
-  <p>Based on Godot Engine, MIT License. Assets CC0 (Kenney, Poly Haven, OpenGameArt).</p>
-  <p><a href="https://github.com/thanoxxinfnity/ChoMU/tree/chomu-release" target="_blank" rel="noopener">GitHub</a> · <a href="https://huggingface.co/tertrxcuvuvjvj/chomu-releases" target="_blank" rel="noopener">Releases</a> · © <span id="yr">2026</span> Chomu</p>
+  <div class="foot-brand"><img src="/assets/icon_512.png" alt="" width="28" height="28"> CHoMU Engine <span>· made by Tejas</span></div>
+  <p>Built on the open-source Godot Engine (MIT License). Not affiliated with the Godot Foundation.<br>Assets CC0 — Kenney, Poly Haven, OpenGameArt.</p>
+  <p><a href="https://huggingface.co/tertrxcuvuvjvj/chomu-releases" target="_blank" rel="noopener">Releases</a> · <a href="https://github.com/thanoxxinfnity/CHOMU-engine" target="_blank" rel="noopener">GitHub</a> · © <span id="yr">2026</span> Chomu</p>
 </footer>
 
 <script src="/main.js" defer></script>
