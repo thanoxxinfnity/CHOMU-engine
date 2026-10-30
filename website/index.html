@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CHoMU Engine — Android game editor & Chomu games</title>
+<meta name="description" content="CHoMU Engine: an Android game editor based on Godot Engine 4.7.2 with GDScript. Download the APK and play Chomu City.">
+<meta name="theme-color" content="#07080d">
+<meta property="og:title" content="CHoMU Engine">
+<meta property="og:description" content="Make games on your phone. Android game editor based on Godot 4.7.2 + Chomu games.">
+<meta property="og:image" content="/assets/og.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<canvas id="particles" aria-hidden="true"></canvas>
+<div class="grid-bg" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <a href="#top" class="brand"><img src="/assets/icon_512.png" alt="" width="34" height="34"><span>CHoMU</span></a>
+  <nav class="links">
+    <a href="#engine">Engine</a>
+    <a href="#games">Games</a>
+    <a href="#download">Download</a>
+    <a href="#credits">Credits</a>
+  </nav>
+  <a href="#download" class="btn btn-sm">Get APK</a>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <!-- Optional hero video slot: drop /assets/hero.mp4 and it plays automatically behind the logo -->
+    <video class="hero-video" id="heroVideo" muted loop playsinline preload="none" data-src="/assets/hero.mp4" aria-hidden="true"></video>
+    <div class="hero-inner">
+      <div class="logo-wrap">
+        <div class="ring r1"></div><div class="ring r2"></div>
+        <img src="/assets/logo_white.png" class="hero-logo" alt="CHoMU Engine logo" width="220" height="220">
+      </div>
+      <h1 class="title glitch" data-text="CHoMU ENGINE">CHoMU ENGINE</h1>
+      <p class="tagline"><span class="typed" id="typed"></span><span class="caret">|</span></p>
+      <div class="cta">
+        <a class="btn btn-primary" id="heroDl" href="https://huggingface.co/tertrxcuvuvjvj/chomu-releases/resolve/main/CHoMU_Engine_v1.0.apk?download=true">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5z"/></svg>
+          Download Engine APK <small>v1.0 · 158.5 MB</small>
+        </a>
+        <a class="btn btn-ghost" href="#games">Play Chomu City</a>
+      </div>
+      <p class="hero-note">Android · arm64 · Based on Godot Engine 4.7.2 (MIT)</p>
+    </div>
+    <a href="#engine" class="scroll-hint" aria-label="Scroll down"><span></span></a>
+  </section>
+
+  <!-- ENGINE -->
+  <section id="engine" class="section">
+    <div class="section-head reveal">
+      <span class="kicker">// the engine</span>
+      <h2>Make games <em>on your phone.</em></h2>
+      <p>CHoMU Engine is a branded Android build of the full Godot 4.7.2 editor. Open, edit and run 2D &amp; 3D projects right on an Android device — no PC needed.</p>
+    </div>
+    <div class="features">
+      <article class="card tilt reveal">
+        <div class="ico">⚙️</div>
+        <h3>Full editor on Android</h3>
+        <p>Scene tree, inspector, script editor, project manager and run button — the complete Godot 4.7.2 editor compiled for arm64 Android.</p>
+      </article>
+      <article class="card tilt reveal">
+        <div class="ico">📜</div>
+        <h3>GDScript support</h3>
+        <p>Write gameplay in GDScript with the built-in code editor. Projects stay compatible with standard Godot 4.7.</p>
+      </article>
+      <article class="card tilt reveal">
+        <div class="ico">🧊</div>
+        <h3>2D &amp; 3D renderers</h3>
+        <p>Forward+, Mobile and Compatibility renderers included, plus all standard engine modules.</p>
+      </article>
+      <article class="card tilt reveal">
+        <div class="ico">📦</div>
+        <h3>Open Chomu projects</h3>
+        <p>Import the Chomu City project (source on GitHub) and tweak the city, cars and shaders yourself.</p>
+      </article>
+    </div>
+    <div class="spec reveal">
+      <div><b>Version</b><span>1.0</span></div>
+      <div><b>Base</b><span>Godot 4.7.2-stable</span></div>
+      <div><b>Package</b><span>com.tejas.chomuengine</span></div>
+      <div><b>Arch</b><span>arm64-v8a</span></div>
+      <div><b>Size</b><span>158.5 MB</span></div>
+    </div>
+  </section>
+
+  <!-- GAMES -->
+  <section id="games" class="section">
+    <div class="section-head reveal">
+      <span class="kicker">// the games</span>
+      <h2>Chomu <em>games</em></h2>
+      <p>Built with CHoMU Engine. More coming soon.</p>
+    </div>
+
+    <article class="game-feature reveal">
+      <div class="media tilt-soft">
+        <!-- Gameplay video slot: put /assets/chomucity_gameplay.mp4 (web mp4, H.264) and it replaces the screenshot automatically -->
+        <video id="cityVideo" class="media-el" muted loop playsinline controls preload="metadata"
+               poster="/assets/chomucity_shot.jpg" data-src="/assets/chomucity_gameplay.mp4" hidden></video>
+        <picture id="cityShot">
+          <source srcset="/assets/chomucity_shot.webp" type="image/webp">
+          <img class="media-el" src="/assets/chomucity_shot.jpg" alt="Chomu City gameplay screenshot: character on a city street with minimap" loading="lazy" width="1280" height="720">
+        </picture>
+        <span class="badge live">PLAYABLE</span>
+      </div>
+      <div class="info">
+        <h3>Chomu City <span class="ver">v0.1</span></h3>
+        <p>An open-world city demo for Android. Walk the streets, jump in a car, drift through traffic and watch the day turn to night.</p>
+        <ul class="ticks">
+          <li>Procedural 400×400 m city with traffic &amp; pedestrians</li>
+          <li>Enter / exit cars, horn, drift, car lights</li>
+          <li>Day–night cycle, HDRI sky, fog &amp; glow</li>
+          <li>Touch controls, minimap, Low → Ultra graphics</li>
+        </ul>
+        <div class="row">
+          <a class="btn btn-primary" href="https://huggingface.co/tertrxcuvuvjvj/chomu-releases/resolve/main/ChomuCity_v0.1.apk?download=true">
+            <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5z"/></svg>
+            Download APK <small>v0.1 · 38.7 MB</small>
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/thanoxxinfnity/ChoMU/tree/chomu-release/chomu-city" target="_blank" rel="noopener">Source</a>
+        </div>
+      </div>
+    </article>
+
+    <div class="soon-grid">
+      <article class="card soon tilt reveal haveli">
+        <span class="badge">COMING SOON</span>
+        <div class="ico big">🏚️</div>
+        <h3>Chomu Haveli</h3>
+        <p>A horror game set inside an old haveli. Diyas flicker, doors creak… don't look behind you.</p>
+      </article>
+      <article class="card soon tilt reveal shader">
+        <span class="badge">COMING SOON</span>
+        <div class="ico big">✨</div>
+        <h3>CHoMU Shader Pack</h3>
+        <p>A pack of ready-made shaders and materials for CHoMU Engine / Godot projects.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section id="download" class="section">
+    <div class="section-head reveal">
+      <span class="kicker">// download</span>
+      <h2>One tap. <em>Install.</em></h2>
+      <p>Direct APK downloads. On Android, allow “Install unknown apps” for your browser when asked.</p>
+    </div>
+    <div class="dl-grid">
+      <a class="dl-card tilt reveal" href="https://huggingface.co/tertrxcuvuvjvj/chomu-releases/resolve/main/CHoMU_Engine_v1.0.apk?download=true">
+        <img src="/assets/icon_512.png" alt="" width="72" height="72" loading="lazy">
+        <div><h3>CHoMU Engine</h3><p>v1.0 · 158.5 MB · Android arm64</p></div>
+        <span class="dl-arrow">↓</span>
+      </a>
+      <a class="dl-card tilt reveal" href="https://huggingface.co/tertrxcuvuvjvj/chomu-releases/resolve/main/ChomuCity_v0.1.apk?download=true">
+        <img src="/assets/chomucity_shot.jpg" alt="" width="72" height="72" loading="lazy" class="cover">
+        <div><h3>Chomu City</h3><p>v0.1 · 38.7 MB · Android</p></div>
+        <span class="dl-arrow">↓</span>
+      </a>
+    </div>
+    <p class="small reveal">Files hosted on <a href="https://huggingface.co/tertrxcuvuvjvj/chomu-releases" target="_blank" rel="noopener">Hugging Face</a> · Source on <a href="https://github.com/thanoxxinfnity/ChoMU/tree/chomu-release" target="_blank" rel="noopener">GitHub</a></p>
+  </section>
+
+  <!-- CREDITS -->
+  <section id="credits" class="section">
+    <div class="section-head reveal">
+      <span class="kicker">// credits &amp; licenses</span>
+      <h2>Standing on <em>giants.</em></h2>
+    </div>
+    <div class="credits reveal">
+      <div class="credit">
+        <h4>Godot Engine</h4>
+        <p>CHoMU Engine is based on <a href="https://godotengine.org" target="_blank" rel="noopener">Godot Engine</a> 4.7.2, © Juan Linietsky, Ariel Manzur and Godot Engine contributors, released under the <a href="https://godotengine.org/license" target="_blank" rel="noopener">MIT License</a>. CHoMU Engine is not affiliated with or endorsed by the Godot Foundation.</p>
+      </div>
+      <div class="credit">
+        <h4>Kenney (CC0)</h4>
+        <p>City Kit (Commercial, Roads, Suburban), Car Kit, Mini Characters, Impact Sounds — <a href="https://kenney.nl" target="_blank" rel="noopener">kenney.nl</a>. Public domain, credited with thanks.</p>
+      </div>
+      <div class="credit">
+        <h4>Poly Haven (CC0)</h4>
+        <p>Asphalt 02, Concrete Floor 02, Grass Path 2 textures and the Kloofendal 48d Partly Cloudy HDRI (Greg Zaal) — <a href="https://polyhaven.com/license" target="_blank" rel="noopener">polyhaven.com</a>.</p>
+      </div>
+      <div class="credit">
+        <h4>Audio (CC0)</h4>
+        <p>Car Sound Effects Pack by GGBotNet and High traffic road sounds by IgnasD — <a href="https://opengameart.org" target="_blank" rel="noopener">OpenGameArt</a>.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="foot-brand"><img src="/assets/icon_512.png" alt="" width="28" height="28"> CHoMU Engine · made by Tejas</div>
+  <p>Based on Godot Engine, MIT License. Assets CC0 (Kenney, Poly Haven, OpenGameArt).</p>
+  <p><a href="https://github.com/thanoxxinfnity/ChoMU/tree/chomu-release" target="_blank" rel="noopener">GitHub</a> · <a href="https://huggingface.co/tertrxcuvuvjvj/chomu-releases" target="_blank" rel="noopener">Releases</a> · © <span id="yr">2026</span> Chomu</p>
+</footer>
+
+<script src="/main.js" defer></script>
+</body>
+</html>

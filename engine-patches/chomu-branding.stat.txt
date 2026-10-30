@@ -1,0 +1,45 @@
+ core/version.h                                     |   4 +++-
+ editor/editor_log.cpp                              |   2 +-
+ editor/editor_node.cpp                             |   2 +-
+ editor/gui/credits_roll.cpp                        |   2 +-
+ editor/gui/editor_about.cpp                        |   7 ++++---
+ editor/icons/DefaultProjectIcon.svg                |   2 +-
+ editor/icons/Logo.svg                              |   2 +-
+ editor/icons/TitleBarLogo.svg                      |   2 +-
+ editor/project_manager/project_manager.cpp         |   2 +-
+ main/app_icon.png                                  | Bin 3770 -> 18891 bytes
+ main/main.cpp                                      |   8 ++++----
+ main/main_builders.py                              |   4 ++--
+ main/splash.png                                    | Bin 14701 -> 274161 bytes
+ platform/android/java/editor/build.gradle          |   6 ++++--
+ .../java/editor/src/main/res/values/strings.xml    |   2 +-
+ .../java/editor/src/main/res/values/themes.xml     |   1 +
+ .../main/res/drawable/splash_branding_image.webp   | Bin 102 -> 7522 bytes
+ .../lib/src/main/res/drawable/splash_icon.webp     | Bin 6698 -> 7888 bytes
+ .../java/lib/src/main/res/mipmap-hdpi/icon.webp    | Bin 2812 -> 4588 bytes
+ .../src/main/res/mipmap-hdpi/icon_background.webp  | Bin 44 -> 44 bytes
+ .../src/main/res/mipmap-hdpi/icon_foreground.webp  | Bin 2080 -> 2652 bytes
+ .../src/main/res/mipmap-hdpi/icon_monochrome.webp  | Bin 1122 -> 2652 bytes
+ .../java/lib/src/main/res/mipmap-mdpi/icon.webp    | Bin 2102 -> 2412 bytes
+ .../src/main/res/mipmap-mdpi/icon_background.webp  | Bin 44 -> 44 bytes
+ .../src/main/res/mipmap-mdpi/icon_foreground.webp  | Bin 1394 -> 1626 bytes
+ .../src/main/res/mipmap-mdpi/icon_monochrome.webp  | Bin 736 -> 1626 bytes
+ .../java/lib/src/main/res/mipmap-xhdpi/icon.webp   | Bin 3782 -> 7088 bytes
+ .../src/main/res/mipmap-xhdpi/icon_background.webp | Bin 46 -> 46 bytes
+ .../src/main/res/mipmap-xhdpi/icon_foreground.webp | Bin 2966 -> 3722 bytes
+ .../src/main/res/mipmap-xhdpi/icon_monochrome.webp | Bin 1516 -> 3722 bytes
+ .../java/lib/src/main/res/mipmap-xxhdpi/icon.webp  | Bin 5790 -> 12614 bytes
+ .../main/res/mipmap-xxhdpi/icon_background.webp    | Bin 52 -> 52 bytes
+ .../main/res/mipmap-xxhdpi/icon_foreground.webp    | Bin 4782 -> 5932 bytes
+ .../main/res/mipmap-xxhdpi/icon_monochrome.webp    | Bin 2242 -> 5932 bytes
+ .../java/lib/src/main/res/mipmap-xxxhdpi/icon.webp | Bin 8178 -> 18670 bytes
+ .../main/res/mipmap-xxxhdpi/icon_background.webp   | Bin 52 -> 52 bytes
+ .../main/res/mipmap-xxxhdpi/icon_foreground.webp   | Bin 6698 -> 8116 bytes
+ .../main/res/mipmap-xxxhdpi/icon_monochrome.webp   | Bin 3024 -> 8116 bytes
+ .../android/java/lib/src/main/res/mipmap/icon.webp | Bin 8178 -> 18670 bytes
+ .../lib/src/main/res/mipmap/icon_background.webp   | Bin 44 -> 44 bytes
+ .../lib/src/main/res/mipmap/icon_foreground.webp   | Bin 1394 -> 1626 bytes
+ .../lib/src/main/res/mipmap/icon_monochrome.webp   | Bin 736 -> 1626 bytes
+ .../java/lib/src/main/res/values/strings.xml       |   2 +-
+ version.py                                         |   2 +-
+ 44 files changed, 28 insertions(+), 22 deletions(-)

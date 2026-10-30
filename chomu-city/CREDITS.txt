@@ -1,0 +1,31 @@
+CHOMU CITY v0.1 - CREDITS & LICENSES
+====================================
+Game code (GDScript, shaders): written for this project (Tejas Singh / CHoMU Engine). 
+
+3D MODELS (all CC0 1.0 Public Domain - https://creativecommons.org/publicdomain/zero/1.0/)
+- Kenney "City Kit (Commercial)"   - https://kenney.nl/assets/city-kit-commercial   (buildings, skyscrapers)
+- Kenney "City Kit (Roads)"        - https://kenney.nl/assets/city-kit-roads        (street lights, traffic lights, dumpsters)
+- Kenney "City Kit (Suburban)"     - https://kenney.nl/assets/city-kit-suburban     (houses, trees, planters)
+- Kenney "Car Kit"                 - https://kenney.nl/assets/car-kit               (player car + traffic cars)
+- Kenney "Mini Characters"         - https://kenney.nl/assets/mini-characters       (rigged + animated player and pedestrians:
+                                     idle / walk / sprint / jump / fall animations included in the GLBs)
+  Created/distributed by Kenney (www.kenney.nl). Credit not required, given with thanks.
+
+TEXTURES & SKY (CC0 - Poly Haven, https://polyhaven.com/license)
+- "Asphalt 02" (diffuse + normal)          - https://polyhaven.com/a/asphalt_02
+- "Concrete Floor 02" (diffuse + normal)   - https://polyhaven.com/a/concrete_floor_02
+- "Grass Path 2" (diffuse)                 - https://polyhaven.com/a/grass_path_2
+- HDRI "Kloofendal 48d Partly Cloudy (Pure Sky)" - https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky
+  (by Greg Zaal, CC0)
+
+AUDIO
+- Footsteps: Kenney "Impact Sounds" (CC0)          - https://kenney.nl/assets/impact-sounds
+- Car engine loop, engine start, horn, door open/close:
+  "Car Sound Effects Pack (Low Quality)" by GGBotNet (CC0) - https://opengameart.org/content/car-sound-effects-pack-low-quality
+- City ambience: "High traffic road sounds" by IgnasD (CC0) - https://opengameart.org/content/high-traffic-road-sounds
+
+BRANDING
+- Chomu logo / splash / icon: provided by the project owner (Tejas Singh).
+
+NOT USED: Mixamo (by request), paid/AI-generated 3D models (Triverse key only allowed image generation),
+Sketchfab (API blocked by a WAF challenge from the build machine).
