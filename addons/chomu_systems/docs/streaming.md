@@ -1,0 +1,3 @@
+# ChomuWorldStreamer (Node3D) - F-71
+
+Splits the XZ plane into square cells (`cell_size`, default 128 m). Every `update_interval` it requests the cells within `load_radius` of `target`, nearest first, with `ResourceLoader.load_threaded_request`. It polls their status, instances at most `max_instances_per_frame` per frame at the cell's grid origin, and frees cells beyond `load_radius + unload_margin` (the margin is hysteresis). Cell paths come from `cell_path_pattern` ("res://world/cell_{x}_{z}.tscn") or `cell_path_provider: Callable(Vector2i) -> String`. Missing files are skipped. Signals: `cell_requested`, `cell_loaded`, `cell_unloaded`. `refresh()` after a teleport.

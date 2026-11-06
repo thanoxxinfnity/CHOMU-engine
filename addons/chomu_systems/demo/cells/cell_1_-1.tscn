@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3]
+
+[sub_resource type="BoxMesh" id="m"]
+size = Vector3(31, 0.2, 31)
+
+[sub_resource type="StandardMaterial3D" id="mat"]
+albedo_color = Color(0.30, 0.34, 0.30, 1)
+
+[sub_resource type="BoxShape3D" id="s"]
+size = Vector3(31, 0.2, 31)
+
+[node name="Cell" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, -0.1, 16)
+
+[node name="Mesh" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("m")
+surface_material_override/0 = SubResource("mat")
+
+[node name="Shape" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("s")
+
+[node name="Pillar" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 2, 16)
+size = Vector3(1, 4, 1)
