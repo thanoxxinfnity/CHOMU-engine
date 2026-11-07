@@ -36,6 +36,7 @@ func _ready() -> void:
 	await test_streamer()
 	await test_ragdoll()
 	await test_wind_buoyancy()
+	await run_item_tests()
 	print("=== %d passed, %d failed ===" % [passed, failed])
 	if failed > 0:
 		print("FAILED: ", ", ".join(failures))
@@ -581,3 +582,25 @@ func _crate(pos: Vector3, water: ChomuWater) -> RigidBody3D:
 	add_child(rb)
 	rb.global_position = pos
 	return rb
+
+# ------------------------------------------------------------------ per-feature item tests
+## Every tests/items/test_*.gd extends RefCounted and has `func run(t: Node) -> void`
+## (it may await). It reports through t.check(name, cond, detail).
+const ITEMS_DIR := "res://addons/chomu_systems/tests/items"
+
+func run_item_tests() -> void:
+	var files := DirAccess.get_files_at(ITEMS_DIR)
+	var names: Array[String] = []
+	for f in files:
+		var n := String(f).trim_suffix(".remap")
+		if n.begins_with("test_") and n.ends_with(".gd") and not names.has(n):
+			names.append(n)
+	names.sort()
+	for n in names:
+		var scr: Script = load(ITEMS_DIR + "/" + n)
+		if scr == null or not scr.can_instantiate():
+			check("item " + n + " loads", false, "script failed to load")
+			continue
+		print("[item ", n.trim_prefix("test_").trim_suffix(".gd"), "]")
+		var inst: Object = scr.new()
+		await inst.call("run", self)

@@ -1,0 +1,30 @@
+; CHoMU Ultra demo project
+config_version=5
+
+[application]
+
+config/name="CHoMU Ultra Demo"
+run/main_scene="res://demo/demo.tscn"
+config/features=PackedStringArray("4.7", "Mobile")
+
+[autoload]
+
+ChomuUltraBoot="*res://addons/chomu_ultra/boot.gd"
+
+[chomu_ultra]
+
+preset="Mobile Ultra"
+runtime_preset="Auto"
+apply_on_start=true
+adaptive_resolution=true
+target_fps=60
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/chomu_ultra/plugin.cfg")
+
+[rendering]
+
+renderer/rendering_method="mobile"
+renderer/rendering_method.mobile="mobile"
+textures/vram_compression/import_etc2_astc=true

@@ -1,0 +1,15 @@
+extends RefCounted
+const Impl := preload("res://addons/chomu_systems/sheet/audio_pitch_volume_randomization.gd")
+func run(t: Node) -> void:
+	var audio_pitch_vol_rand := Impl.new(12345)
+	t.check("F-32 audio pitch and volume randomization core", audio_pitch_vol_rand != null, "Class instance creation failed")
+	t.check("F-32 seed set", audio_pitch_vol_rand._rng.seed == 12345, "Seed not set correctly")
+	audio_pitch_vol_rand.set_pitch_range(-12.0, 12.0)
+	audio_pitch_vol_rand.set_volume_range(0.2, 0.8)
+	var result := audio_pitch_vol_rand.randomize_pitch_volume()
+	t.check("F-32 pitch in range", result["pitch"] >= -12.0 and result["pitch"] <= 12.0, "Pitch out of range")
+	t.check("F-32 volume in range", result["volume"] >= 0.2 and result["volume"] <= 0.8, "Volume out of range")
+	var state := audio_pitch_vol_rand.to_dict()
+	t.check("F-32 state serialization", state["seed"] == 12345, "State serialization failed")
+	audio_pitch_vol_rand.from_dict(state)
+	t.check("F-32 deserialization", audio_pitch_vol_rand._rng.seed == 12345, "Deserialization failed")

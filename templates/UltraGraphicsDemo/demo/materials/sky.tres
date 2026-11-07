@@ -1,0 +1,25 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://addons/chomu_ultra/shaders/sky_atmosphere.gdshader" id="1_dr08x"]
+[ext_resource type="Texture2D" path="res://demo/textures/cloud_noise.tres" id="2_ggv36"]
+
+[resource]
+shader = ExtResource("1_dr08x")
+shader_parameter/zenith_color = null
+shader_parameter/horizon_color = null
+shader_parameter/ground_color = null
+shader_parameter/horizon_sharpness = null
+shader_parameter/sky_energy = null
+shader_parameter/sunset_tint = null
+shader_parameter/sun_size_deg = null
+shader_parameter/sun_softness = null
+shader_parameter/sun_disk_energy = null
+shader_parameter/mie_strength = null
+shader_parameter/mie_g = null
+shader_parameter/cloud_tex = ExtResource("2_ggv36")
+shader_parameter/cloud_coverage = null
+shader_parameter/cloud_softness = null
+shader_parameter/cloud_scale = null
+shader_parameter/cloud_offset = null
+shader_parameter/cloud_color = null
+shader_parameter/cloud_shadow_color = null

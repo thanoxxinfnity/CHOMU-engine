@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://addons/chomu_ultra/shaders/heat_haze.gdshader" id="1_i5jgn"]
+[ext_resource type="Texture2D" path="res://demo/textures/water_normal_a.tres" id="2_j3vt7"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_i5jgn")
+shader_parameter/distortion_noise = ExtResource("2_j3vt7")
+shader_parameter/strength = null
+shader_parameter/speed = null
+shader_parameter/noise_tiling = null
+shader_parameter/billboard = null

@@ -1,0 +1,13 @@
+[gd_resource type="NoiseTexture2D" format=3]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1c86h"]
+noise_type = 2
+seed = 14
+frequency = 0.025
+fractal_octaves = 4
+
+[resource]
+noise = SubResource("FastNoiseLite_1c86h")
+seamless = true
+as_normal_map = true
+bump_strength = 14.0

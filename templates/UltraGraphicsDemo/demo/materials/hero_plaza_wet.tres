@@ -1,0 +1,33 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://addons/chomu_ultra/shaders/hero_pbr.gdshader" id="1_cpy5c"]
+[ext_resource type="Texture2D" path="res://demo/textures/noise_albedo.tres" id="2_eerkr"]
+[ext_resource type="Texture2D" path="res://demo/textures/noise_detail_normal.tres" id="3_6k3xf"]
+[ext_resource type="Texture2D" path="res://demo/textures/noise_rock_normal.tres" id="4_ilthr"]
+[ext_resource type="Texture2D" path="res://demo/textures/macro_noise.tres" id="5_0xphl"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_cpy5c")
+shader_parameter/albedo_color = Color(0.55, 0.53, 0.5, 1)
+shader_parameter/albedo_tex = ExtResource("2_eerkr")
+shader_parameter/uv_scale = Vector2(3, 3)
+shader_parameter/roughness = 0.8
+shader_parameter/metallic = null
+shader_parameter/ao_strength = null
+shader_parameter/specular = null
+shader_parameter/normal_tex = ExtResource("4_ilthr")
+shader_parameter/normal_strength = 0.5
+shader_parameter/detail_normal_tex = ExtResource("3_6k3xf")
+shader_parameter/detail_tiling = 6.0
+shader_parameter/detail_strength = null
+shader_parameter/detail_fade_distance = null
+shader_parameter/wetness = null
+shader_parameter/porosity = null
+shader_parameter/puddle_amount = 0.5
+shader_parameter/puddle_noise = ExtResource("5_0xphl")
+shader_parameter/puddle_scale = 0.35
+shader_parameter/emission_color = null
+shader_parameter/emission_energy = null
+shader_parameter/rim_strength = null
+shader_parameter/rim_tint = null

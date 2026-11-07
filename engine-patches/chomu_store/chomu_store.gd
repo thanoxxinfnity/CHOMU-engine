@@ -8,7 +8,7 @@ extends EditorPlugin
 ## cached in the editor cache folder, downloads are kept inside the project (res://chomu_assets/).
 ## One tap import: HDRI -> WorldEnvironment sky, texture -> StandardMaterial3D, model -> glTF scene.
 
-const STORE_VERSION := "1.4"
+const STORE_VERSION := "1.5"
 
 var _view: Control
 

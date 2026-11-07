@@ -1,0 +1,42 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://addons/chomu_ultra/shaders/terrain_triplanar.gdshader" id="1_nvxfh"]
+[ext_resource type="Texture2D" path="res://demo/textures/noise_albedo.tres" id="2_keg5k"]
+[ext_resource type="Texture2D" path="res://demo/textures/noise_normal.tres" id="3_uvw3o"]
+[ext_resource type="Texture2D" path="res://demo/textures/macro_noise.tres" id="4_tiyn4"]
+[ext_resource type="Texture2D" path="res://demo/textures/noise_rock_normal.tres" id="5_io8p4"]
+[ext_resource type="Texture2D" path="res://demo/textures/noise_detail_normal.tres" id="6_aur08"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_nvxfh")
+shader_parameter/grass_albedo = ExtResource("2_keg5k")
+shader_parameter/grass_normal = ExtResource("3_uvw3o")
+shader_parameter/grass_tint = null
+shader_parameter/grass_tiling = null
+shader_parameter/grass_roughness = null
+shader_parameter/rock_albedo = ExtResource("2_keg5k")
+shader_parameter/rock_normal = ExtResource("5_io8p4")
+shader_parameter/rock_tint = null
+shader_parameter/rock_tiling = null
+shader_parameter/rock_roughness = null
+shader_parameter/rock_triplanar = null
+shader_parameter/sand_albedo = ExtResource("2_keg5k")
+shader_parameter/sand_normal = ExtResource("6_aur08")
+shader_parameter/sand_tint = null
+shader_parameter/sand_tiling = null
+shader_parameter/sand_roughness = null
+shader_parameter/slope_start = null
+shader_parameter/slope_end = null
+shader_parameter/sand_height = 0.9
+shader_parameter/sand_blend = null
+shader_parameter/triplanar_sharpness = null
+shader_parameter/normal_strength = null
+shader_parameter/macro_noise = ExtResource("4_tiyn4")
+shader_parameter/macro_tiling = null
+shader_parameter/macro_variation = null
+shader_parameter/wet_shore = null
+shader_parameter/water_level = 0.0
+shader_parameter/height_scale = null
+shader_parameter/height_offset = null
+shader_parameter/height_world_size = null

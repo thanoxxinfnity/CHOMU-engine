@@ -1,0 +1,27 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://addons/chomu_ultra/shaders/hero_pbr.gdshader" id="1_dak06"]
+[ext_resource type="Texture2D" path="res://demo/textures/noise_detail_normal.tres" id="2_uc0p5"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_dak06")
+shader_parameter/albedo_color = Color(1, 0.78, 0.34, 1)
+shader_parameter/uv_scale = null
+shader_parameter/roughness = 0.28
+shader_parameter/metallic = 1.0
+shader_parameter/ao_strength = null
+shader_parameter/specular = null
+shader_parameter/normal_strength = null
+shader_parameter/detail_normal_tex = ExtResource("2_uc0p5")
+shader_parameter/detail_tiling = 6.0
+shader_parameter/detail_strength = 0.25
+shader_parameter/detail_fade_distance = null
+shader_parameter/wetness = null
+shader_parameter/porosity = null
+shader_parameter/puddle_amount = null
+shader_parameter/puddle_scale = null
+shader_parameter/emission_color = null
+shader_parameter/emission_energy = null
+shader_parameter/rim_strength = 0.15
+shader_parameter/rim_tint = null

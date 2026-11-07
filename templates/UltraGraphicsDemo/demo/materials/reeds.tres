@@ -1,0 +1,26 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://addons/chomu_ultra/shaders/foliage.gdshader" id="1_xn1fn"]
+[ext_resource type="Texture2D" path="res://demo/textures/grass_blades.png" id="2_w5hf4"]
+[ext_resource type="Texture2D" path="res://demo/textures/wind_noise.tres" id="3_7a00s"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_xn1fn")
+shader_parameter/albedo_tex = ExtResource("2_w5hf4")
+shader_parameter/root_color = Color(0.2, 0.24, 0.1, 1)
+shader_parameter/tip_color = Color(0.62, 0.58, 0.3, 1)
+shader_parameter/alpha_cutoff = null
+shader_parameter/roughness = null
+shader_parameter/specular = null
+shader_parameter/color_variation = null
+shader_parameter/up_normal_blend = null
+shader_parameter/backlight_color = null
+shader_parameter/subsurface = 0.8
+shader_parameter/wind_noise = ExtResource("3_7a00s")
+shader_parameter/wind_direction = null
+shader_parameter/wind_strength = 0.45
+shader_parameter/wind_speed = null
+shader_parameter/gust_scale = null
+shader_parameter/flutter = null
+shader_parameter/use_vertex_color_weight = null

@@ -1,0 +1,34 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://addons/chomu_ultra/shaders/water.gdshader" id="1_kofw0"]
+[ext_resource type="Texture2D" path="res://demo/textures/foam_noise.tres" id="2_kcw6b"]
+[ext_resource type="Texture2D" path="res://demo/textures/water_normal_a.tres" id="3_fs2vf"]
+[ext_resource type="Texture2D" path="res://demo/textures/water_normal_b.tres" id="4_dl5vy"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_kofw0")
+shader_parameter/shallow_color = null
+shader_parameter/deep_color = null
+shader_parameter/depth_distance = null
+shader_parameter/clarity = null
+shader_parameter/roughness = null
+shader_parameter/normal_a = ExtResource("3_fs2vf")
+shader_parameter/normal_b = ExtResource("4_dl5vy")
+shader_parameter/normal_tiling = null
+shader_parameter/scroll_a = null
+shader_parameter/scroll_b = null
+shader_parameter/normal_strength = null
+shader_parameter/refraction = null
+shader_parameter/foam_color = null
+shader_parameter/foam_tex = ExtResource("2_kcw6b")
+shader_parameter/foam_distance = null
+shader_parameter/foam_tiling = null
+shader_parameter/crest_foam = null
+shader_parameter/wave_height = null
+shader_parameter/wave_length = null
+shader_parameter/wave_speed = null
+shader_parameter/wave_dir_a = null
+shader_parameter/wave_dir_b = null
+shader_parameter/fresnel_power = null
+shader_parameter/fresnel_boost = null
